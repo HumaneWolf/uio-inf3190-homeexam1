@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     }
 
     // Variables for sendmsg and recvmsg.
-    char buffer[MAX_PACKET_SIZE] = {0};
+    char buffer[MAX_PAYLOAD_SIZE] = {0};
     char mip_addr = 0;
 
     struct iovec iov[3];
@@ -59,15 +59,11 @@ int main(int argc, char *argv[])
     message.msg_iov = iov;
     message.msg_iovlen = 2;
 
-    if (sendmsg(sock, &message, 0) == -1)
-    {
-        perror("sendmsg()");
-        exit(EXIT_FAILURE);
-    }
     printf("Now listening to connections.\n");
 
     while (1)
     {
+        printf("start\n");
         // Receive message.
         if (recvmsg(sock, &message, MSG_WAITALL) == -1)
         {

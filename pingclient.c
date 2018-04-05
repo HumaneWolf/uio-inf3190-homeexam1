@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     }
 
     // Variables for sendmsg and recvmsg.
-    char buffer[MAX_PACKET_SIZE] = {0};
+    char buffer[MAX_PAYLOAD_SIZE] = {0};
     strcpy(buffer, msg);
     unsigned char mip_addr = atoi(argv[1]);
 
@@ -62,8 +62,8 @@ int main(int argc, char *argv[])
     iov[0].iov_base = &mip_addr;
     iov[0].iov_len = sizeof(mip_addr);
 
-    iov[2].iov_base = buffer;
-    iov[2].iov_len = sizeof(buffer);
+    iov[1].iov_base = buffer;
+    iov[1].iov_len = sizeof(buffer);
 
     struct msghdr message = {0};
     message.msg_iov = iov;

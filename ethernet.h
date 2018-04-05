@@ -12,14 +12,6 @@
  * Max size for the content/payload.
  * Set lower than MAX_FRAME_SIZE to make sure there is space for the header.
  */
-#define MAX_PAYLOAD_SIZE 1496
-
-struct ethernet_frame
-{
-    uint8_t destination[6];
-    uint8_t source[6];
-    uint16_t protocol;
-    char msg[];
-} __attribute__((packed));
+#define MAX_PAYLOAD_SIZE 99
 
 #endif
