@@ -1,3 +1,4 @@
 bin/ping_client
 bin/ping_server
 bin/routing_server
+*.pdf
